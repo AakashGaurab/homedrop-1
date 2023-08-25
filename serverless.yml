@@ -1,0 +1,17 @@
+service: homedrop
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+  # environment:
+  #   db: mongodb+srv://aakashgaurav456:Aakash@cluster0.blrrfmi.mongodb.net/homedrop?retryWrites=true&w=majority
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http: ANY /{proxy+}
+      - http: ANY /
